@@ -18,10 +18,10 @@ class MailSender {
             from: 'OpenMusic V3',
             to: targetEmail,
             subject: 'Eksport Lagu',
-            text: 'Terlampir hasul ekspor lagu',
+            text: 'Terlampir hasil ekspor lagu',
             attachments: [
                 {
-                    filname: 'playlistSongs.json',
+                    filename: 'playlistSongs.json',
                     content,
                 },
             ],
