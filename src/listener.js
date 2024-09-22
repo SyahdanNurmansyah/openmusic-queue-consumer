@@ -1,7 +1,7 @@
 class Listener {
-    constructor(playlistSongsService, mailSender) {
+    constructor(playlistsService, mailSender) {
 
-        this._playlistSongsService = playlistSongsService;
+        this._playlistsService = playlistsService;
         this._mailSender = mailSender;
     }
 
@@ -11,7 +11,7 @@ class Listener {
 
             const { playlistId, targetEmail } = JSON.parse(message.content.toString());
 
-            const playlistSongs = await this._playlistSongsService.getSongsByPlaylistId(playlistId);
+            const playlistSongs = await this._playlistsService.getSongsByPlaylistId(playlistId);
             const prettyJson = JSON.stringify(playlistSongs, null, 2);
 
             const result = await this._mailSender.sendEmail(targetEmail, prettyJson);

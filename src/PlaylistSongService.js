@@ -9,8 +9,7 @@ class PlaylistSongsService {
     async getSongsByPlaylistId(playlistId) {
         
         const playlistQuery = {
-            text: `SELECT id, name FROM playlists
-            WHERE id = $1`,
+            text: `SELECT id, name FROM playlists WHERE id = $1`,
             values: [playlistId],
         };
 
