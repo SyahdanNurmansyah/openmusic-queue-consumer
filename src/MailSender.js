@@ -17,7 +17,7 @@ class MailSender {
         const message = {
             from: 'OpenMusic V3',
             to: targetEmail,
-            subject: 'Eksport Lagu',
+            subject: 'Ekspor Lagu',
             text: 'Terlampir hasil ekspor lagu',
             attachments: [
                 {
