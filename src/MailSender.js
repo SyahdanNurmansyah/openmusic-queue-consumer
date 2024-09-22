@@ -4,7 +4,7 @@ class MailSender {
     constructor () {
         this._transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
-            port: process.env.PORT,
+            port: process.env.SMTP_PORT,
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASSWORD,
@@ -21,7 +21,7 @@ class MailSender {
             text: 'Terlampir hasul ekspor lagu',
             attachments: [
                 {
-                    filname: 'songs.json',
+                    filname: 'playlistSongs.json',
                     content,
                 },
             ],

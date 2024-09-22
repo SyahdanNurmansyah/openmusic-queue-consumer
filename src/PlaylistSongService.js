@@ -1,4 +1,3 @@
-const { values } = require("lodash");
 const { Pool } = require("pg");
 
 class PlaylistSongsService {
