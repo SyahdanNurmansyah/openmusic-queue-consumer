@@ -1,6 +1,6 @@
 const { Pool } = require("pg");
 
-class PlaylistSongsService {
+class PlaylistsService {
     constructor() {
 
         this._pool = new Pool();
@@ -13,8 +13,8 @@ class PlaylistSongsService {
             values: [playlistId],
         };
 
-        const playlistQueryResult = await this._pool.query(playlistQuery);
-        const playlist = playlistQueryResult.rows[0];
+        const result = await this._pool.query(playlistQuery);
+        const playlist = result.rows[0];
 
         const songsQuery = {
             text: `SELECT songs.id, songs.title, songs.performer FROM songs
@@ -24,8 +24,8 @@ class PlaylistSongsService {
         }
 
         const songsQueryResult = await this._pool.query(songsQuery);
-        
         const songs = songsQueryResult.rows;
+        
         const response = {
             ...playlist,
             songs,
@@ -35,4 +35,4 @@ class PlaylistSongsService {
     }
 }
 
-module.exports = PlaylistSongsService;
+module.exports = PlaylistsService;
