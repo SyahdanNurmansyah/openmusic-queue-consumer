@@ -22,18 +22,8 @@ class Listener {
 
         }   catch (error) {
             console.error(error);
-        }
-        //     const playlist = await this._playlistsService.getSongsByPlaylistId(playlistId);
-        //     const result = await this._mailSender.sendEmail(targetEmail, JSON.stringify({
-        //         playlist,
-        //     }));
-
-        //     console.log('Email terkirim!', result);
-
-        // }   catch (error) {
-        //     console.error(error);
-        // }
-    }
-}
+        };
+    };
+};
 
 module.exports = Listener;
