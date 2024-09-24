@@ -15,7 +15,11 @@ class Listener {
 
             console.log(playlist);
 
-            const result = await this._mailSender.sendEmail(targetEmail, JSON.stringify({ playlist }));
+            const prettyJson = JSON.stringify(playlist, null, 2);
+ 
+            const result = await this._mailSender.sendEmail(targetEmail, prettyJson);
+
+            // const result = await this._mailSender.sendEmail(targetEmail, JSON.stringify({ playlist }));
 
             console.log('Email terkirim:', result);
 
