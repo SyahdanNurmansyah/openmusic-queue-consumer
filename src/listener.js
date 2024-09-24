@@ -10,13 +10,12 @@ class Listener {
     async listen(message) {
 
         try {
-
             const { playlistId, targetEmail } = JSON.parse(message.content.toString());
             const playlist = await this._playlistsService.getSongsByPlaylistId(playlistId);
 
-            const prettyJson = JSON.stringify(playlist, null, 2);
- 
-            const result = await this._mailSender.sendEmail(targetEmail, prettyJson);
+            console.log(playlist);
+
+            const result = await this._mailSender.sendEmail(targetEmail, JSON.stringify({ playlist }));
 
             console.log('Email terkirim:', result);
 
@@ -27,3 +26,13 @@ class Listener {
 };
 
 module.exports = Listener;
+
+            // const playlistSongs = {
+            //     playlist: {
+            //         ...playlist,
+            //     }
+            // }
+            // const prettyJson = JSON.stringify(playlist, null, 2);
+ 
+            // const result = await this._mailSender.sendEmail(targetEmail, prettyJson);
+            

@@ -17,7 +17,7 @@ const init = async () => {
         durable: true,
     });
 
-    channel.consume('export:songs', listener.listen, { noAck: true})
+    await channel.consume('export:songs', listener.listen, { noAck: true})
 };
 
 init();
